@@ -1,13 +1,15 @@
 using UnityEngine;
+using Shooting;
 
 public class bullet : MonoBehaviour
 {
     public float speed = 1f;
+    
 
     void Update()
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
-
+       
         if (transform.position.x > 8.7f) // Destroy when out of bounds
         {
             Destroy(gameObject);
@@ -18,8 +20,8 @@ public class bullet : MonoBehaviour
     {
         if (other.CompareTag("enemy"))
         {
-            Debug.Log("HIT  ENEMY");
-          //  Destroy(gameObject);
+          //  playerShoot player = FindAnyObjectByType<playerShoot>;
+            Destroy(gameObject);
         }
     }
 }

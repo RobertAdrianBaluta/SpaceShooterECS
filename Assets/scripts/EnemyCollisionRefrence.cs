@@ -8,7 +8,8 @@ public class EnemyCollisionRefrence : MonoBehaviour
     private EntityManager entityManager;
     public bool hit = false;
     [SerializeField] private TextMeshPro enemyText;
-    
+
+    public static int score = 0;
 
     void Start()
     {
@@ -28,20 +29,18 @@ public class EnemyCollisionRefrence : MonoBehaviour
             transform.position = translation.Value;
         }
     }
-    
     void OnTriggerEnter2D(Collider2D collision)
     {
-        int sroe = 0;
-
+        if (hit) return;
         if (collision.CompareTag("Killzone"))
         {
-            Debug.Log($"Enemy hit by wall: {entitycollision}");
             DestroyEnemy();
         }
         if (collision.CompareTag("bullet"))
         {
-            sroe++;
-            Debug.Log("score: " + sroe);
+            hit = true;
+            score++;
+            Debug.Log(score);
             DestroyEnemy();
         }
 
@@ -49,7 +48,6 @@ public class EnemyCollisionRefrence : MonoBehaviour
 
     private void DestroyEnemy()
     {
-        Debug.Log($"Enemy hit by {entitycollision}");
 
         // ❌ Destroy the ECS entity
         if (entityManager.Exists(entitycollision))

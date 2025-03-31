@@ -1,21 +1,26 @@
+
 using UnityEngine;
 
-public class playerShoot : MonoBehaviour
+namespace Shooting
 {
-    public GameObject BulletPrefab;
-    public Transform firePoint;
-  
-    void Update()
+    public class playerShoot : MonoBehaviour
     {
-        Shoot();
-    }
+        public GameObject BulletPrefab;
+        public Transform firePoint;
+        public int numbertest = 0;
 
-    void Shoot()
-    {
-        if (Input.GetKeyDown (KeyCode.Space))
+        void Update()
         {
-            Instantiate(BulletPrefab, firePoint.position, Quaternion.identity);
-            Instantiate(BulletPrefab, firePoint.position , Quaternion.identity);
+            Shoot();
+        }
+
+        void Shoot()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Instantiate(BulletPrefab, firePoint.position, Quaternion.identity);
+            }
         }
     }
 }
+
