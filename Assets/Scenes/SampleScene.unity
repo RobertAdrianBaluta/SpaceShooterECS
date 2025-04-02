@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb85465542614947942483aac574814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 0.05
+  cooldownTime: 0.01
   speedValue: 3
   enemyCollisionPrefab: {fileID: 3708745909994017687, guid: bb52431d7d945c94fb76fded2d15a314, type: 3}
 --- !u!4 &1187862669
